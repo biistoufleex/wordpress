@@ -1,12 +1,15 @@
 <?php
 
-
-
 // declare un function
 function party_support(){
-    add_theme_support('tittle-tag');
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
 };
 
+// change le separateur du titre
+function party_title_separator(){
+    return "|";
+};
 
 function party_register_assets(){
     // enregistre un style/script
@@ -23,3 +26,4 @@ function party_register_assets(){
 // lance une function a un evenement
 add_action('after_setup_theme', 'party_support');
 add_action('wp_enqueue_scripts', 'party_register_assets');
+add_filter('document_title_separator', 'party_title_separator');
